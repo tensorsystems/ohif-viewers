@@ -89,7 +89,7 @@
   "PostgreSQL": {
     "EnableIndex": true,
     "EnableStorage": true,
-    "Host": "192.168.1.8",
+    "Host": "${POSTGRES_HOST}",
     "Port": 5432,
     "Database": "orthanc",
     "Username": "postgres",

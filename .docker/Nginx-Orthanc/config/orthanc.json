@@ -94,5 +94,9 @@
     "Database": "orthanc",
     "Username": "postgres",
     "Password": "${POSTGRES_PASSWORD}"
+  },
+  "Worklists": {
+    "Enable": true,
+    "Database": "/WorklistsDatabase"
   }
 }

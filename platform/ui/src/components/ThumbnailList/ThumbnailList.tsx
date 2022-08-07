@@ -16,6 +16,7 @@ const ThumbnailList = ({
         ({
           displaySetInstanceUID,
           description,
+          imageLaterality,
           dragData,
           seriesNumber,
           numInstances,
@@ -41,6 +42,7 @@ const ThumbnailList = ({
                   displaySetInstanceUID={displaySetInstanceUID}
                   dragData={dragData}
                   description={description}
+                  imageLaterality={imageLaterality}
                   seriesNumber={seriesNumber}
                   numInstances={numInstances}
                   imageSrc={imageSrc}
@@ -62,6 +64,7 @@ const ThumbnailList = ({
                   description={description}
                   seriesNumber={seriesNumber}
                   numInstances={numInstances}
+                  imageLaterality={imageLaterality}
                   imageSrc={imageSrc}
                   imageAltText={imageAltText}
                   viewportIdentificator={viewportIdentificator}
@@ -113,6 +116,7 @@ ThumbnailList.propTypes = {
       seriesNumber: PropTypes.string,
       numInstances: PropTypes.number,
       description: PropTypes.string,
+      imageLaterality: PropTypes.string,
       componentType: PropTypes.oneOf([
         'thumbnail',
         'thumbnailTracked',

@@ -269,6 +269,7 @@ function _mapDisplaySets(displaySets, thumbnailImageSrcMap) {
     array.push({
       displaySetInstanceUID: ds.displaySetInstanceUID,
       description: ds.SeriesDescription || '',
+      imageLaterality: ds.ImageLaterality || '',
       seriesNumber: ds.SeriesNumber,
       modality: ds.Modality,
       seriesDate: ds.SeriesDate,

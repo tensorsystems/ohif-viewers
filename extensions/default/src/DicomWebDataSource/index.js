@@ -336,6 +336,7 @@ function createDicomWebApi(dicomWebConfig, UserAuthenticationService) {
             SOPClassUID: instance.SOPClassUID,
             ProtocolName: instance.ProtocolName,
             Modality: instance.Modality,
+            ImageLaterality: instance.ImageLaterality,
           };
         }
 

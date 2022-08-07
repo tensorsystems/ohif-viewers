@@ -10,6 +10,7 @@ const ThumbnailTracked = ({
   imageSrc,
   imageAltText,
   description,
+  imageLaterality,
   seriesNumber,
   numInstances,
   dragData,
@@ -110,6 +111,7 @@ const ThumbnailTracked = ({
         imageAltText={imageAltText}
         dragData={dragData}
         description={description}
+        imageLaterality={imageLaterality}
         seriesNumber={seriesNumber}
         numInstances={numInstances}
         isActive={isActive}
@@ -137,6 +139,7 @@ ThumbnailTracked.propTypes = {
   imageSrc: PropTypes.string,
   imageAltText: PropTypes.string,
   description: PropTypes.string.isRequired,
+  imageLaterality: PropTypes.string,
   seriesNumber: PropTypes.string.isRequired,
   numInstances: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,

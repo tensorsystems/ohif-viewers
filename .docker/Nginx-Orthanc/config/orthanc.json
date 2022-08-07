@@ -85,18 +85,5 @@
     "StowMaxInstances": 10,
     "StowMaxSize": 10,
     "QidoCaseSensitive": false
-  },
-  "PostgreSQL": {
-    "EnableIndex": true,
-    "EnableStorage": true,
-    "Host": "${POSTGRES_HOST}",
-    "Port": 5432,
-    "Database": "orthanc",
-    "Username": "postgres",
-    "Password": "${POSTGRES_PASSWORD}"
-  },
-  "Worklists": {
-    "Enable": true,
-    "Database": "/WorklistsDatabase"
   }
 }

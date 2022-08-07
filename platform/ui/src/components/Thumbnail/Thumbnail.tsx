@@ -13,7 +13,6 @@ const Thumbnail = ({
   imageSrc,
   imageAltText,
   description,
-  imageLaterality,
   seriesNumber,
   numInstances,
   dragData,
@@ -76,22 +75,10 @@ const Thumbnail = ({
             <Icon name="group-layers" className="w-3 mr-2" /> {numInstances}
           </div>
         </div>
-        <div className="text-base text-white break-all">{`${description} ${getImageLateralityText(
-          imageLaterality
-        )}`}</div>
+        <div className="text-base text-white break-all">{description}</div>
       </div>
     </div>
   );
-};
-
-const getImageLateralityText = (imageLaterality: any) => {
-  if (imageLaterality) {
-    if (imageLaterality === 'L') return '(OS)';
-    if (imageLaterality === 'R') return `(OD)`;
-    if (imageLaterality === 'B') return `(OU)`;
-  }
-
-  return '';
 };
 
 Thumbnail.propTypes = {
@@ -111,7 +98,6 @@ Thumbnail.propTypes = {
   }),
   imageAltText: PropTypes.string,
   description: PropTypes.string.isRequired,
-  imageLaterality: PropTypes.string,
   seriesNumber: PropTypes.string.isRequired,
   numInstances: PropTypes.number.isRequired,
   isActive: PropTypes.bool.isRequired,

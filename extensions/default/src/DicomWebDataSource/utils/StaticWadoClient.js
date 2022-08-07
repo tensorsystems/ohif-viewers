@@ -9,13 +9,13 @@ import { api } from 'dicomweb-client';
  */
 export default class StaticWadoClient extends api.DICOMwebClient {
   static filterKeys = {
-    StudyInstanceUID: '0020000D',
-    PatientName: '00100010',
-    '00100020': 'mrn',
-    StudyDescription: '00081030',
-    StudyDate: '00080020',
-    ModalitiesInStudy: '00080061',
-    AccessionNumber: '00080050',
+    "StudyInstanceUID": "0020000D",
+    "PatientName": "00100010",
+    "00100020": "mrn",
+    "StudyDescription": "00081030",
+    "StudyDate": "00080020",
+    "ModalitiesInStudy": "00080061",
+    AccessionNumber: "00080050",
   };
 
   constructor(qidoConfig) {
@@ -66,7 +66,7 @@ export default class StaticWadoClient extends api.DICOMwebClient {
     if (actual?.Alphabetic) {
       actual = actual.Alphabetic;
     }
-    if (typeof actual == 'string') {
+    if (typeof (actual) == 'string') {
       if (actual.length === 0) return true;
       if (desired.length === 0 || desired === '*') return true;
       if (desired[0] === '*' && desired[desired.length - 1] === '*') {
@@ -75,10 +75,7 @@ export default class StaticWadoClient extends api.DICOMwebClient {
       } else if (desired[desired.length - 1] === '*') {
         return actual.indexOf(desired.substring(0, desired.length - 1)) != -1;
       } else if (desired[0] === '*') {
-        return (
-          actual.indexOf(desired.substring(1)) ===
-          actual.length - desired.length + 1
-        );
+        return actual.indexOf(desired.substring(1)) === actual.length - desired.length + 1;
       }
     }
     return desired === actual;
@@ -91,7 +88,8 @@ export default class StaticWadoClient extends api.DICOMwebClient {
     if (dash === -1) return this.compareValues(range, value);
     const start = range.substring(0, dash);
     const end = range.substring(dash + 1);
-    return (!start || value >= start) && (!end || value <= end);
+    return (!start || value >= start) &&
+      (!end || value <= end);
   }
 
   /**
@@ -109,8 +107,7 @@ export default class StaticWadoClient extends api.DICOMwebClient {
     if (!testValue) return true;
     const valueElem = study[key] || study[altKey];
     if (!valueElem) return false;
-    if (valueElem.vr == 'DA')
-      return this.compareDateRange(testValue, valueElem.Value[0]);
+    if (valueElem.vr == 'DA') return this.compareDateRange(testValue, valueElem.Value[0]);
     const value = valueElem.Value;
     return this.compareValues(testValue, value) && true;
   }

@@ -86,7 +86,6 @@ export function processSeriesResults(qidoSeries) {
         seriesDate: utils.formatDate(getString(qidoSeries['00080021'])),
         numSeriesInstances: Number(getString(qidoSeries['00201209'])),
         description: getString(qidoSeries['0008103E']),
-        imageLaterality: getString(qidoSeries['00200062']),
       })
     );
   }
@@ -125,7 +124,7 @@ async function search(
 export function seriesInStudy(dicomWebClient, studyInstanceUID) {
   // Series Description
   // Already included?
-  const commaSeparatedFields = ['0008103E', '00080021', '00200062'].join(',');
+  const commaSeparatedFields = ['0008103E', '00080021'].join(',');
   const queryParams = {
     includefield: commaSeparatedFields,
   };
@@ -172,7 +171,7 @@ function mapParams(params, options = {}) {
     // Named
     PatientName: withWildcard(params.patientName),
     //PatientID: withWildcard(params.patientId),
-    '00100020': withWildcard(params.patientId), // Temporarily to make the tests pass with dicomweb-server.. Apparently it's broken?
+    "00100020": withWildcard(params.patientId), // Temporarily to make the tests pass with dicomweb-server.. Apparently it's broken?
     AccessionNumber: withWildcard(params.accessionNumber),
     StudyDescription: withWildcard(params.studyDescription),
     ModalitiesInStudy: params.modalitiesInStudy,

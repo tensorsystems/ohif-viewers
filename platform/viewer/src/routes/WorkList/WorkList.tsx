@@ -323,11 +323,7 @@ function WorkList({
             seriesInStudiesMap.has(studyInstanceUid)
               ? seriesInStudiesMap.get(studyInstanceUid).map(s => {
                   return {
-                    description: s.description
-                      ? `${s.description} ${getImageLateralityText(
-                          s.imageLaterality
-                        )}`
-                      : '(empty)',
+                    description: s.description || '(empty)',
                     seriesNumber: s.seriesNumber || '',
                     modality: s.modality || '',
                     instances: s.numSeriesInstances || '',
@@ -486,7 +482,7 @@ const defaultFilterValues = {
 };
 
 function _tryParseInt(str, defaultValue) {
-  let retValue = defaultValue;
+  var retValue = defaultValue;
   if (str !== null) {
     if (str.length > 0) {
       if (!isNaN(str)) {
@@ -496,16 +492,6 @@ function _tryParseInt(str, defaultValue) {
   }
   return retValue;
 }
-
-const getImageLateralityText = (imageLaterality: any) => {
-  if (imageLaterality) {
-    if (imageLaterality === 'L') return '(OS)';
-    if (imageLaterality === 'R') return `(OD)`;
-    if (imageLaterality === 'B') return `(OU)`;
-  }
-
-  return '';
-};
 
 function _getQueryFilterValues(query) {
   const queryFilterValues = {

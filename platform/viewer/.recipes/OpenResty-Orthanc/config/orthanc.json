@@ -34,7 +34,10 @@
   "RegisteredUsers": {
     "test": "test"
   },
-  "DicomModalities": {},
+  "DicomModalities": {
+    "findscu": ["FINDSCU", "192.168.1.7", 1234],
+    "opt": ["OPT", "172.16.32.34", 1234]
+  },
   "DicomModalitiesInDatabase": false,
   "DicomAlwaysAllowEcho": true,
   "DicomAlwaysAllowStore": true,
@@ -85,5 +88,18 @@
     "StowMaxInstances": 10,
     "StowMaxSize": 10,
     "QidoCaseSensitive": false
+  },
+  "PostgreSQL": {
+    "EnableIndex": true,
+    "EnableStorage": true,
+    "Host": "${POSTGRES_HOST}",
+    "Port": 5432,
+    "Database": "orthanc",
+    "Username": "postgres",
+    "Password": "${POSTGRES_PASSWORD}"
+  },
+  "Worklists": {
+    "Enable": true,
+    "Database": "/WorklistsDatabase"
   }
 }

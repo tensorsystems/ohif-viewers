@@ -83,6 +83,14 @@ module.exports = (env, argv, { SRC_DIR, DIST_DIR }) => {
         loadWebWorkersRule,
         // loadShadersRule,
         {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+            },
+          ],
+        },
+        {
           test: /\.m?js/,
           resolve: {
             fullySpecified: false,
